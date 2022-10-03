@@ -4,11 +4,11 @@ class Login {
 
   Login(
       {this.id,
-      required this.titulo,
-      required this.descricao,
-      required this.senha,
-      required this.username,
-      required this.url});
+      this.titulo,
+      this.descricao,
+      this.senha,
+      this.username,
+      this.url});
 
   Map<String, dynamic> toMap() {
     return {

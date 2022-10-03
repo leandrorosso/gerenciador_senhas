@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gerenciador_senhas/screens/home/components/body.dart';
 import 'package:gerenciador_senhas/screens/components/float_action_button.dart';
+import 'package:gerenciador_senhas/screens/logins/components/body.dart';
 
-class HomeScreen extends StatefulWidget {
+class LoginsScreen extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _LoginsScreenState createState() => _LoginsScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _LoginsScreenState extends State<LoginsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

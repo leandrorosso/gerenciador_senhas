@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gerenciador_senhas/models/login.dart';
 import 'package:gerenciador_senhas/screens/components/card_login.dart';
-import 'package:gerenciador_senhas/screens/logins/logins_screen.dart';
 import 'package:gerenciador_senhas/services/login_service.dart';
 
 class Body extends StatefulWidget {
@@ -23,31 +22,19 @@ class _BodyState extends State<Body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
+      padding: EdgeInsets.only(top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Padding(
-            padding: const EdgeInsets.only(left: 24, bottom: 16, right: 24),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text('Últimos logins cadastrados',
-                    style: Theme.of(context).textTheme.bodyText1),
-                InkWell(
-                  onTap: () {
-                    Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => LoginsScreen()),
-                    );
-                  },
-                  child: Text(
-                    'ver todos',
-                    style: Theme.of(context).textTheme.headline3,
-                  ),
-                ),
-              ],
-            ),
-          ),
+              padding: EdgeInsets.only(left: 24, bottom: 16, right: 24),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text('Todos os logins',
+                      style: Theme.of(context).textTheme.bodyText1),
+                ],
+              )),
           FutureBuilder(
             future: _loadLogins,
             builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -55,14 +42,13 @@ class _BodyState extends State<Body> {
                 _logins = snapshot.data;
                 return Expanded(
                   child: ListView.builder(
-                    itemCount: _logins.length > 8 ? 8 : _logins.length,
-                    itemBuilder: (context, index) {
-                      return cardLogin(context, index, _logins[index]);
-                    },
-                  ),
+                      itemCount: _logins.length,
+                      itemBuilder: (context, index) {
+                        return cardLogin(context, index, _logins[index]);
+                      }),
                 );
               } else {
-                return const Center(
+                return Center(
                   child: CircularProgressIndicator(),
                 );
               }
