@@ -40,6 +40,9 @@ dev_dependencies:
     sdk: flutter
   sqflite: any
   path_provider: any
+  flutter_secure_storage: any
+  encrypt: any
+  crypto: any
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
